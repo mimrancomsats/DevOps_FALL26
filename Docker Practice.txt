@@ -45,11 +45,11 @@ COPY test.py .
 
 CMD python3 test.py
 
-3. docker build -t <DockerHubUsername>/pythonapp .
+3. docker build -t <DockerHubUsername>/<RepoName>:<Tag> .
 4. docker images
-5. docker run --name pythonapp_c  <DockerHubUsername>/pythonapp
+5. docker run --name pythonapp_c  <DockerHubUsername>/<RepoName>:<Tag>
 6. docker login
-7. docker push <DockerHubUsername>/pythonapp
+7. docker push <DockerHubUsername>/<RepoName>:<Tag>
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 PhP - Docker Build Image, Run it and Push it to Docker Hub.
@@ -86,10 +86,10 @@ WORKDIR /var/www/html
 
 COPY index.php .
 
-3. docker build -t <DockerHubUsername>/phpapp .
+3. docker build -t <DockerHubUsername>/<RepoName>:<Tag> .
 4. docker images
-5. docker run --name phpapp_c -p 8080:80 -d <DockerHubUsername>/phpapp
-6. docker push <DockerHubUsername>/phpapp
+5. docker run --name phpapp_c -p 8080:80 -d <DockerHubUsername>/<RepoName>:<Tag>
+6. docker push <DockerHubUsername>/<RepoName>:<Tag>
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 TO BUILD DOCKER IMAGE WITH CUSTOM DOCKERFILE NAME:
