@@ -1,0 +1,106 @@
+Pull the Remote Repo from Git, create Branch and Push To Remote Repo
+-------------------------------------------------------------------
+1. Create a folder in /home/ubuntu using following command
+ mkdir project
+
+2. Get inside the folder and type following command
+ git init
+
+3. Settings of username and email
+ git config --global user.name "Imran"
+ git config --global user.email "imran@gmail.com"
+
+4. Add Remote Repository
+ git remote add git7a <REMOTE REPO URL>
+ git remote -v
+
+4. Pull Remote Repository
+ git pull git7a main
+ git log --oneline
+
+5. Create new feature Branch
+ git branch featurebranch
+ git checkout featurebranch
+ git branch
+
+ touch newfeature.py
+ git add newfeature.py
+ git commit -m "newfeature commit"
+ git log --oneline
+
+6. Push featurebranch to the git7a remote repository in GitHub
+ git push git8ab featurebranch
+
+7. Create Pull Request
+ Go to GitHub Repository
+ Click on Pull requests
+ Click on Compare & pull request.
+ Select featurebranch in Compare and Review Section
+ Click on Create Pull Request Button
+ Click on Merge Pull Request Button
+ Click on Confirm Merge Option
+ Click on Delete branch to delete featurebranch
+ Redirect to the repository.
+ You can view featurebranch.py file merged there.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 1 - Configure Local Git Settings for a Repository
+----------------------------------------------------------------
+Configure Git username and email locally for a specific repository and verify that the settings do not affect other repositories.
+
+1. Create a directory named localsettings and initialize it as a Git repository.
+2. Configure the Git username as Student and email as student@gmail.com for this repository only.
+3. Display the configured username and email using Git commands.
+4. Display the repository-specific configuration settings.
+5. Check the global Git username and email settings, if configured.
+6. Verify that the local settings take precedence over the global settings for this repository.
+Hint: Use git config with the appropriate option for repository-specific settings.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 2 - Understanding the Difference Between Git Reset and Git Revert
+----------------------------------------------------------------
+Understand how git reset and git revert undo changes in Git and how they affect the commit history.
+
+1. Create a new Git repository and make an initial commit on the main branch.
+2. Create a file named app.py, add some code, and commit it.
+3. Make two additional commits with changes to app.py. Use git log --oneline to examine the commit history.
+4. Use git reset to undo the most recent commit. Observe the changes in the working directory and staging area, and examine the updated commit history.
+5. Repeat steps 1 to 3 and ensure that all three commits are present.
+6. Use git revert to undo the most recent commit. Observe the changes in the working directory and examine the updated commit history.
+7. Compare the results of git reset and git revert using git status and git log --oneline.
+8. Explore how --soft, --mixed and --hard flags are used with git reset and how they impact the changes in the woring directory and staging area.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 3 - Using Git Stash to Manage Conflicting Changes
+----------------------------------------------------------------
+Understand how to temporarily save uncommitted changes using Git stash, continue working on another task, and restore the stashed changes.
+
+1. Create a new Git repository named `git-stash-exercise` and initialize it with a `main` branch.
+2. Create a file named `app.txt` containing the following line and commit it:
+   `Application version 1`
+3. Modify `app.txt` by replacing the existing line with:
+   `Feature version A`
+   Do not commit this change.
+4. Use `git stash` to temporarily save your changes. Verify that the working directory is clean using `git status`.
+5. Modify `app.txt` by appending its content with:
+   `Feature version B`
+   Stage and commit this change with the message `Update application version`.
+6. Execute `git stash pop` to restore the previously stashed changes. Observe whether Git applies the changes successfully or reports a conflict.
+7. If a conflict occurs, inspect the conflict markers in `app.txt`. Resolve the conflict by retaining `Feature version B` and adding a new line containing `New feature under development`.
+8. Stage the resolved file and commit the changes with the message `Resolve stash conflict`.
+9. Use `git status`, `git log --oneline`, and `git stash list` to examine the final repository state.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task 4 - Understanding the Difference Between Git Merge and Git Rebase
+----------------------------------------------------------------
+Understand how git merge and git rebase integrate changes from different branches and how they affect Git commit history.
+
+1. Create a new Git repository and make an initial commit on the main branch.
+2. Create a branch named feature and make at least two commits containing changes to a file.
+3. Switch to the main branch and make at least one additional commit.
+4. Use git log --oneline --graph --all to examine the commit history before integrating the branches.
+5. Integrate the changes from main into feature using git merge main. Examine and record the resulting commit history.
+6. Git will likely a report a merge conflict if both the branches have modified the same file. Resolve the conflict manualy and create a merge commit.
+6. Repeat steps 1 to 4. Integrate the changes from main into feature using git rebase main instead of git merge main.
+7. Compare the commit histories produced by both approaches and identify whether the feature commits received new commit IDs when using git rebase.
