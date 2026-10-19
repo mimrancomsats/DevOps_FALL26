@@ -29,7 +29,7 @@ Pull the Remote Repo from Git, create Branch and Push To Remote Repo
  git log --oneline
 
 6. Push featurebranch to the git7a remote repository in GitHub
- git push git8ab featurebranch
+ git push git7a featurebranch
 
 7. Create Pull Request
  Go to GitHub Repository
